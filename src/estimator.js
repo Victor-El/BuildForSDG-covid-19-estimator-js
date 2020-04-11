@@ -23,7 +23,7 @@ const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, peri
 
 const computeSevereCasesByRequestedTime = (infectionsByRequestedTime) => Math.floor(infectionsByRequestedTime * (15 / 100));
 
-const computeHospitalBedsByRequestedTime = (totalHospitalBeds, severeCasesByRequestedTime) => (totalHospitalBeds * (35 / 100)) - severeCasesByRequestedTime;
+const computeHospitalBedsByRequestedTime = (totalHospitalBeds, severeCasesByRequestedTime) => Math.floor((totalHospitalBeds * (35 / 100)) - severeCasesByRequestedTime);
 
 const covid19ImpactEstimator = (data) => {
   const impact = {};
@@ -32,7 +32,7 @@ const covid19ImpactEstimator = (data) => {
   impact.currentlyInfected = computeImpactCurrentlyInfected(data.reportedCases);
   impact.infectionsByRequestedTime = computeInfectionsByRequestedTime(impact.currentlyInfected, data.timeToElapse, data.periodType);
   impact.severeCasesByRequestedTime = computeSevereCasesByRequestedTime(impact.infectionsByRequestedTime);
-  impact.hospitalBedsByRequestedTime = computeHospitalBedsByRequestedTime(data.totalHospitalBeds, imapct.severeCasesByRequestedTime);
+  impact.hospitalBedsByRequestedTime = computeHospitalBedsByRequestedTime(data.totalHospitalBeds, impact.severeCasesByRequestedTime);
 
   severeImpact.currentlyInfected = computeSevereImpactCurrentlyInfected(data.reportedCases);
   severeImpact.infectionsByRequestedTime = computeInfectionsByRequestedTime(severeImpact.currentlyInfected, data.timeToElapse, data.periodType);
