@@ -1,21 +1,3 @@
-/* eslint-disable no-restricted-properties */
-const covid19ImpactEstimator = (data) => {
-  impact = {};
-  severeImpact = {};
-
-  impact.currentlyInfected = computeImpactCurrentlyInfected(data.reportedCases);
-  impact.infectionsByRequestedTime = computeInfectionsByRequestedTime(impact.currentlyInfected);
-
-  severeImpact.currentlyInfected = computeSevereImpactCurrentlyInfected(data.reportedCases);
-  severeImpact.infectionsByRequestedTime = computeInfectionsByRequestedTime(severeImpact.currentlyInfected);
-
-  return {
-    data,
-    impact,
-    severeImpact
-  };
-};
-
 const computeImpactCurrentlyInfected = (reportedCases) => reportedCases * 10;
 const computeSevereImpactCurrentlyInfected = (reportedCases) => reportedCases * 50;
 const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, periodType) => {
@@ -35,6 +17,23 @@ const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, peri
   }
 
   return infectionsByRequestedTime;
+};
+
+const covid19ImpactEstimator = (data) => {
+  impact = {};
+  severeImpact = {};
+
+  impact.currentlyInfected = computeImpactCurrentlyInfected(data.reportedCases);
+  impact.infectionsByRequestedTime = computeInfectionsByRequestedTime(impact.currentlyInfected, data.timaToElapse, data.periodType);
+
+  severeImpact.currentlyInfected = computeSevereImpactCurrentlyInfected(data.reportedCases);
+  severeImpact.infectionsByRequestedTime = computeInfectionsByRequestedTime(severeImpact.currentlyInfected, data.timaToElapse, data.periodType);
+
+  return {
+    data,
+    impact,
+    severeImpact
+  };
 };
 
 
