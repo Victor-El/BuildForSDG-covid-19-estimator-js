@@ -23,7 +23,10 @@ const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, peri
 
 const computeSevereCasesByRequestedTime = (infectionsByRequestedTime) => Math.floor(infectionsByRequestedTime * (15 / 100));
 
-const computeHospitalBedsByRequestedTime = (totalHospitalBeds, severeCasesByRequestedTime) => totalHospitalBeds * (35 / 100) - severeCasesByRequestedTime;
+const computeHospitalBedsByRequestedTime = (totalHospitalBeds, severeCasesByRequestedTime) => {
+  const result = totalHospitalBeds * (35 / 100) - severeCasesByRequestedTime;
+  return result < 0 ? result + 1 : result;
+};
 
 const covid19ImpactEstimator = (data) => {
   const impact = {};
