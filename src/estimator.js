@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable no-restricted-properties */
 const computeImpactCurrentlyInfected = (reportedCases) => reportedCases * 10;
 const computeSevereImpactCurrentlyInfected = (reportedCases) => reportedCases * 50;
 const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, periodType) => {
@@ -20,8 +22,8 @@ const computeInfectionsByRequestedTime = (currentlyInfected, requestedTime, peri
 };
 
 const covid19ImpactEstimator = (data) => {
-  impact = {};
-  severeImpact = {};
+  const impact = {};
+  const severeImpact = {};
 
   impact.currentlyInfected = computeImpactCurrentlyInfected(data.reportedCases);
   impact.infectionsByRequestedTime = computeInfectionsByRequestedTime(impact.currentlyInfected, data.timaToElapse, data.periodType);
