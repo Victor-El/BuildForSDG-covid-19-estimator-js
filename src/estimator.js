@@ -61,7 +61,7 @@ const covid19ImpactEstimator = (data) => {
   impact.hospitalBedsByRequestedTime = computeHospitalBedsByRequestedTime(data.totalHospitalBeds, impact.severeCasesByRequestedTime);
   impact.casesForICUByRequestedTime = computeCasesForICUByRequestedTime(impact.infectionsByRequestedTime);
   impact.casesForVentilatorsByRequestedTime = computeCasesForVentilatorsByRequestedTime(impact.infectionsByRequestedTime);
-  impact.dollarsInFlight = computeDollarsInFlight(impact.infectionsByRequestedTime, data.avgDailyIncomeInUSD, data.avgDailyIncomePopulation, data.timeToElapse, data.periodType);
+  impact.dollarsInFlight = computeDollarsInFlight(impact.infectionsByRequestedTime, data.region.avgDailyIncomeInUSD, data.region.avgDailyIncomePopulation, data.timeToElapse, data.periodType);
 
   severeImpact.currentlyInfected = computeSevereImpactCurrentlyInfected(data.reportedCases);
   severeImpact.infectionsByRequestedTime = computeInfectionsByRequestedTime(severeImpact.currentlyInfected, data.timeToElapse, data.periodType);
@@ -69,7 +69,7 @@ const covid19ImpactEstimator = (data) => {
   severeImpact.hospitalBedsByRequestedTime = computeHospitalBedsByRequestedTime(data.totalHospitalBeds, severeImpact.severeCasesByRequestedTime);
   severeImpact.casesForICUByRequestedTime = computeCasesForICUByRequestedTime(severeImpact.infectionsByRequestedTime);
   severeImpact.casesForVentilatorsByRequestedTime = computeCasesForVentilatorsByRequestedTime(severeImpact.infectionsByRequestedTime);
-  severeImpact.dollarsInFlight = computeDollarsInFlight(severeImpact.infectionsByRequestedTime, data.avgDailyIncomeInUSD, data.avgDailyIncomePopulation, data.timeToElapse, data.periodType);
+  severeImpact.dollarsInFlight = computeDollarsInFlight(severeImpact.infectionsByRequestedTime, data.region.avgDailyIncomeInUSD, data.region.avgDailyIncomePopulation, data.timeToElapse, data.periodType);
 
   return {
     data,
