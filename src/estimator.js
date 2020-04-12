@@ -35,13 +35,13 @@ const computeDollarsInFlight = (infectionsByRequestedTime, avgDailyIncomeInUSD, 
 
   switch (periodType.toLowerCase()) {
     case 'days':
-      dollarsInFlight = infectionsByRequestedTime * avgDailyIncomeInUSD * Math.trunc(avgDailyIncomePopulation * period);
+      dollarsInFlight = Math.trunc(infectionsByRequestedTime * avgDailyIncomePopulation * (avgDailyIncomeInUSD / period));
       break;
     case 'weeks':
-      dollarsInFlight = infectionsByRequestedTime * avgDailyIncomeInUSD * Math.trunc(avgDailyIncomePopulation * (period * 7));
+      dollarsInFlight = Math.trunc(infectionsByRequestedTime * avgDailyIncomePopulation * (avgDailyIncomeInUSD / (period * 7)));
       break;
     case 'months':
-      dollarsInFlight = infectionsByRequestedTime * avgDailyIncomeInUSD * Math.trunc(avgDailyIncomePopulation * (period * 30));
+      dollarsInFlight = Math.trunc(infectionsByRequestedTime * avgDailyIncomePopulation * (avgDailyIncomeInUSD / (period * 30)));
       break;
     default:
       throw new Error('Invalid argument, periodType must be either days, weeks or months');
