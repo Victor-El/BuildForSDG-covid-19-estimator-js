@@ -67,7 +67,7 @@ form.addEventListener('submit', (e) => {
   const impactHospitalBedsInRequestedTime = document.createTextNode(`Hospital beds in requested time: ${new Intl.NumberFormat().format(impact.hospitalBedsByRequestedTime)}`);
   const impactCasesForICUInRequstedTime = document.createTextNode(`Cases for ICU in requested time: ${new Intl.NumberFormat().format(impact.casesForICUByRequestedTime)}`);
   const impactCasesForVentilatorsInRequestedTime = document.createTextNode(`Cases for ventilators in requested time: ${new Intl.NumberFormat().format(impact.casesForVentilatorsByRequestedTime)}`);
-  const impactDollarsInFlight = document.createTextNode(`Dollars in flight: ${new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(impact.dollarsInFlight)}`);
+  const impactDollarsInFlight = document.createTextNode(`Dollars in flight: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(impact.dollarsInFlight)}`);
 
   const impactResultArray = [
     impactCurrentlyInfected,
@@ -96,7 +96,7 @@ form.addEventListener('submit', (e) => {
   const severeImpactHospitalBedsInRequestedTime = document.createTextNode(`Hospital beds in requested time: ${new Intl.NumberFormat().format(severeImpact.hospitalBedsByRequestedTime)}`);
   const severeImpactCasesForICUInRequstedTime = document.createTextNode(`Cases for ICU in requested time: ${new Intl.NumberFormat().format(severeImpact.casesForICUByRequestedTime)}`);
   const severeImpactCasesForVentilatorsInRequestedTime = document.createTextNode(`Cases for ventilators in requested time: ${new Intl.NumberFormat().format(severeImpact.casesForVentilatorsByRequestedTime)}`);
-  const severeImpactDollarsInFlight = document.createTextNode(`Dollars in flight: ${new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(severeImpact.dollarsInFlight)}`);
+  const severeImpactDollarsInFlight = document.createTextNode(`Dollars in flight: ${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(severeImpact.dollarsInFlight)}`);
 
   const severeImpactResultArray = [
     severeImpactCurrentlyInfected,
